@@ -25,16 +25,42 @@
 
 // a) Create a test with an expect statement using the variable provided.
 
-var colors1 = ["purple", "blue", "green", "yellow", "pink"]
-// Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
+
+
+
+describe("arrayShuffle", () => {
+    var colors1 = ["purple", "blue", "green", "yellow", "pink"]
+    // Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
 var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-
+    it("takes in an array, removes the first item from the array and shuffles the remaining content", () => {
+      expect(arrayShuffle(colors1)).not.toEqual(["purple", "blue", "green", "yellow", "pink"]) //asks test to check if the output is not equal to the original array meaning it was mutated and shuffled.
+      expect(arrayShuffle(colors2)).not.toEqual(["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"])
+    })
+  })
 
 // b) Create the function that makes the test pass.
-
-
+//create a function that takes an array
+const arrayShuffle = (array) => {
+    array.shift() //remove the first element from the array
+        var currentIndex = array.length,  randomIndex;
+      
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+      
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+      
+        return array;
+      }
+// console.log(arrayShuffle(colors1));
 
 // --------------------2) Create a function that takes an array of numbers and returns an array of the minimum and maximum numbers in that order.
 
@@ -42,7 +68,7 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 
 var nums1 = [3, 56, 90, -8, 0, 23, 6]
 // Expected output: [-8, 90]
-var nums2 = [109, 5, 9, 67 8, 24]
+var nums2 = [109, 5, 9, 67, 8, 24]
 // Expected output: [5, 109]
 
 
