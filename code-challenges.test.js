@@ -13,13 +13,6 @@
 
 // Reminder: The test will call your function
 
-// //describe("areYouHungry", () => {
-//     it("returns eat food or keep working based on input", () => {
-//         expect(areYouHungry("yes")).toEqual("eat food")
-//         expect(areYouHungry("no")).toEqual("keep working")
-//       })
-//     })
-
 
 // --------------------1) Create a function that takes in an array, removes the first item from the array and shuffles the remaining content.
 
@@ -66,25 +59,75 @@ const arrayShuffle = (array) => {
 
 // a) Create a test with expect statements for each of the variables provided.
 
-var nums1 = [3, 56, 90, -8, 0, 23, 6]
-// Expected output: [-8, 90]
-var nums2 = [109, 5, 9, 67, 8, 24]
-// Expected output: [5, 109]
 
 
+
+
+describe("arrayMinMax", () => {
+    var nums1 = [3, 56, 90, -8, 0, 23, 6]
+    // Expected output: [-8, 90]
+    var nums2 = [109, 5, 9, 67, 8, 24]
+    // Expected output: [5, 109]
+    it("takes an array of numbers and returns an array of the minimum and maximum numbers in that order", () => {
+      expect(arrayMinMax(nums1)).toEqual([-8, 90]) 
+      expect(arrayMinMax(nums2)).toEqual([5, 109])
+    })
+  })
 
 // b) Create the function that makes the test pass.
 
 
+//create an array that takes an arr of nums
+//return array of just the minimum and maximum number in that order
+const arrayMinMax = (arr) => {
+    var min_of_array = Math.min.apply(Math, arr);
+    var max_of_array = Math.max.apply(Math, arr);
+
+ let minMaxArray = [min_of_array, max_of_array]
+ return minMaxArray
+
+}
+
+// var nums1 = [3, 56, 90, -8, 0, 23, 6]
+// // Expected output: [-8, 90]
+// var nums2 = [109, 5, 9, 67, 8, 24]
+// // Expected output: [5, 109]
+// console.log(arrayMinMax(nums1));
+// console.log(arrayMinMax(nums2));
 
 // --------------------3) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator to pass in a dynamic number of arguments.
 
 // a) Create a test with an expect statement using the variables provided.
 
-var testArray1 = [3, 7, 10, 5, 4, 3, 3]
-var testArray2 = [7, 8, 2, 3, 1, 5, 4]
-// Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
 
+
+
+describe("filteredNums", () => {
+    var testArray1 = [3, 7, 10, 5, 4, 3, 3]
+    var testArray2 = [7, 8, 2, 3, 1, 5, 4]
+    // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
+    it("takes in two arrays as arguments and returns one array with no duplicate values", () => {
+      expect(filteredNums(testArray1,testArray2)).toEqual([3, 7, 10, 5, 4, 8, 2, 1]) 
+    })
+  })
 
 
 // b) Create the function that makes the test pass.
+
+//make a function that takes 2 arrs
+//return one array with no duplicates
+var testArray1 = [3, 7, 10, 5, 4, 3, 3]
+var testArray2 = [7, 8, 2, 3, 1, 5, 4]
+// Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
+const filteredNums = (x,y) => {
+    d= []
+
+
+x.concat(y).forEach(item =>{
+   if (d.indexOf(item) == -1) 
+     d.push(item); 
+});
+return d;
+}
+
+// console.log(newArray(testArray1,testArray2));
