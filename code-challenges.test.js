@@ -13,6 +13,13 @@
 
 // Reminder: The test will call your function
 
+// //describe("areYouHungry", () => {
+//     it("returns eat food or keep working based on input", () => {
+//         expect(areYouHungry("yes")).toEqual("eat food")
+//         expect(areYouHungry("no")).toEqual("keep working")
+//       })
+//     })
+
 
 // --------------------1) Create a function that takes in an array, removes the first item from the array and shuffles the remaining content.
 
