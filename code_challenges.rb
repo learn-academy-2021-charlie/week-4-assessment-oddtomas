@@ -88,3 +88,4 @@ fixie.pedal_faster
 fixie.brake
 fixie.brake
 fixie.brake #checks to make sure conditional works to keep speed at a 0 minimum 
+

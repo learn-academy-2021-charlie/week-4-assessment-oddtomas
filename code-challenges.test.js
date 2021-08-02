@@ -30,13 +30,14 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
     it("takes in an array, removes the first item from the array and shuffles the remaining content", () => {
       expect(arrayShuffle(colors1)).not.toEqual(["purple", "blue", "green", "yellow", "pink"]) //asks test to check if the output is not equal to the original array meaning it was mutated and shuffled.
       expect(arrayShuffle(colors2)).not.toEqual(["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"])
+
     })
   })
 
 // b) Create the function that makes the test pass.
 //create a function that takes an array
 const arrayShuffle = (array) => {
-    array.shift() //remove the first element from the array
+    array.slice(1) //changed shift to slice because slice makes your array shorter and shorter with each test so it's not an ideal way to meet this condition
         var currentIndex = array.length,  randomIndex;  //assign a current index equal to a random index
         
         while (0 !== currentIndex) { // While there remain elements to shuffle
@@ -50,7 +51,12 @@ const arrayShuffle = (array) => {
       
         return array; //return the shuffled array
       }
+
+// var colors1 = ["purple", "blue", "green", "yellow", "pink"]
+
 // console.log(arrayShuffle(colors1));
+
+
 
 // --------------------2) Create a function that takes an array of numbers and returns an array of the minimum and maximum numbers in that order.
 
