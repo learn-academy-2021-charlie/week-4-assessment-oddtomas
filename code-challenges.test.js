@@ -37,21 +37,18 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 //create a function that takes an array
 const arrayShuffle = (array) => {
     array.shift() //remove the first element from the array
-        var currentIndex = array.length,  randomIndex;
+        var currentIndex = array.length,  randomIndex;  //assign a current index equal to a random index
+        
+        while (0 !== currentIndex) { // While there remain elements to shuffle
       
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-      
-          // Pick a remaining element...
-          randomIndex = Math.floor(Math.random() * currentIndex);
+          randomIndex = Math.floor(Math.random() * currentIndex);  // Pick a remaining element to be used to swap using math.random 
           currentIndex--;
-      
-          // And swap it with the current element.
-          [array[currentIndex], array[randomIndex]] = [
+
+          [array[currentIndex], array[randomIndex]] = [ // And swap it with the current element, array at current index swaps with array at random index
             array[randomIndex], array[currentIndex]];
         }
       
-        return array;
+        return array; //return the shuffled array
       }
 // console.log(arrayShuffle(colors1));
 
@@ -78,20 +75,15 @@ describe("arrayMinMax", () => {
 
 
 //create an array that takes an arr of nums
-//return array of just the minimum and maximum number in that order
 const arrayMinMax = (arr) => {
-    var min_of_array = Math.min.apply(Math, arr);
-    var max_of_array = Math.max.apply(Math, arr);
+    var min_of_array = Math.min.apply(Math, arr); //find the minimum value in the array using math method and store the value to a variable
+    var max_of_array = Math.max.apply(Math, arr); //find the maximum value in the array using math method and store the value to a variable
 
- let minMaxArray = [min_of_array, max_of_array]
- return minMaxArray
+ let minMaxArray = [min_of_array, max_of_array] //assign a new array with just the minimum value, and maximum value in that order. Smaller number first, biggest numb second.
+ return minMaxArray //return array of just the minimum and maximum number in that order
 
 }
 
-// var nums1 = [3, 56, 90, -8, 0, 23, 6]
-// // Expected output: [-8, 90]
-// var nums2 = [109, 5, 9, 67, 8, 24]
-// // Expected output: [5, 109]
 // console.log(arrayMinMax(nums1));
 // console.log(arrayMinMax(nums2));
 
@@ -115,19 +107,13 @@ describe("filteredNums", () => {
 // b) Create the function that makes the test pass.
 
 //make a function that takes 2 arrs
-//return one array with no duplicates
-var testArray1 = [3, 7, 10, 5, 4, 3, 3]
-var testArray2 = [7, 8, 2, 3, 1, 5, 4]
-// Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
-const filteredNums = (x,y) => {
-    d= []
-
-
-x.concat(y).forEach(item =>{
-   if (d.indexOf(item) == -1) 
-     d.push(item); 
+const filteredNums = (arr1,arr2) => {
+    uniqueArr = [] //assign an empty array to fill with unique values
+arr1.concat(arr2).forEach(element =>{ //look through arrays to check for each individual element 
+   if (uniqueArr.indexOf(element) == -1) //check with conditional if the elements in the arrays are not already present
+     uniqueArr.push(element); //push into the new array of unique elements
 });
-return d;
+return uniqueArr; //return the unique array with no duplicates
 }
 
-// console.log(newArray(testArray1,testArray2));
+// console.log(newArray(testArray1,testArray2));`
