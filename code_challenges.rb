@@ -27,12 +27,15 @@ album3 = 'Abbey Road'
 
 # make a method that takes a str parameter
 def vowless(str)
-    str.delete('aeiouAEIOU') #remove all vowels using delete with vowels as the argument lower and uppercase / .downcase is also an option but less accurate to expected outputs
+    str.delete!('aeiouAEIOU') #remove all vowels using delete with vowels as the argument lower and uppercase / .downcase is also an option but less accurate to expected outputs
 end
 
 p vowless album1
 p vowless album2
 p vowless album3
+p album1  #adding bang operator mutates the actual string, without it, you only get the immediate change when the function is run
+p album2
+p album3
 
 
 
